@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO SECTION with video -->
+<section class="hero-video">
+  <video autoplay muted loop>
+    <source src="/media/videos/intro.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <span class="badge-registration">INSCRIPCIONES ABIERTAS</span>
+    <p class="date">{{ event.date }}</p>
+    <h1>{{ event.name }}</h1>
+    <p class="location">🇦🇷 {{ event.location }}</p>
+    <a href="#register" class="btn btn-register">
+      REGISTRATE! <span class="arrow">➔</span>
+    </a>
+  </div>
+</section>
+
+
+
+
+
+<!-- EVENT STATS -->
+<section class="bg-light py-5">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <h5>Natacion</h5>
+        <p>{{ event.swim_type }}</p>
+      </div>
+      <div class="col">
+        <h5>Ciclismo</h5>
+        <p>{{ event.bike_type }}</p>
+      </div>
+      <div class="col">
+        <h5>Pedestrismo</h5>
+        <p>{{ event.run_type }}</p>
+      </div>
+      <div class="col">
+        <h5>Temperatura ambiente</h5>
+        <p>{{ event.temp_high }} °C</p>
+      </div>
+      <div class="col">
+        <h5>Temperatura del agua</h5>
+        <p>{{ event.temp_water }} °C</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="container py-5">
+  <h2 class="text-center mb-4">Galeria</h2>
+  <div class="row">
+    {% for photo in photos %}
+      <div class="col-md-4 mb-4">
+        <img src="{{ photo.image.url }}" class="img-fluid rounded shadow" alt="{{ photo.caption }}">
+      </div>
+    {% endfor %}
+  </div>
+  <div class="text-center">
+    <a href="{% url 'gallery' %}" class="btn btn-outline-primary">View More</a>
+  </div>
+</section>
+
+<!-- RECOMMENDED RACES -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Otras carreras recomendadas</h2>
+    <div class="row">
+      {% for race in recommended_races %}
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <img src="{{ race.image.url }}" class="card-img-top" alt="{{ race.name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ race.name }}</h5>
+              <p class="card-text">{{ race.date }}<br>{{ race.location }}</p>
+              <a href="{{ race.link }}" target="_blank" class="btn btn-primary">See Race Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="container py-5 text-center">
+  <h2 class="mb-4">Sponsors del evento</h2>
+  <div class="row justify-content-center">
+    {% for sponsor in sponsors %}
+      <div class="col-4 col-md-2 mb-4">
+        <img src="{{ sponsor.logo.url }}" class="img-fluid" alt="{{ sponsor.name }}">
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

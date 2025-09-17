@@ -1,0 +1,252 @@
+/* ------------------ HERO ------------------ */
+
+.hero-video {
+  position: relative;
+  height: 85vh;
+  overflow: hidden;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Contenido encima del video */
+.hero-content {
+  position: absolute;
+  bottom: 20%;
+  left: 8%;
+  color: #fff;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+.hero-content .date {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 5px;
+}
+
+.hero-content .location {
+  font-size: 1rem;
+  margin: 10px 0 20px;
+}
+
+/* Badge superior */
+.badge-registration {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 4px 12px;
+  border-radius: 3.7px; /* suaviza bordes */
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Botón morado metalizado */
+.btn-register {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background: linear-gradient(135deg, #7b2cbf, #9d4edd, #5a189a);
+  color: #fff;
+  padding: 14px 36px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 3.7px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+  background: linear-gradient(135deg, #9d4edd, #7b2cbf, #3c096c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+}
+
+.btn-register .arrow {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+/* ------------------ SIDEBAR ------------------ */
+#sidebar.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px; /* oculto */
+  width: 280px;
+  height: 100%;
+  background: #111 !important; /* fuerza fondo oscuro */
+  color: #fff !important;
+  padding: 30px 20px;
+  transition: all 0.3s ease;
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+#sidebar.sidebar.active {
+  left: 0 !important; /* aparece */
+  box-shadow: 4px 0 12px rgba(0,0,0,0.5);
+}
+
+#sidebar.sidebar ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+#sidebar.sidebar ul li {
+  margin: 15px 0;
+}
+
+#sidebar.sidebar ul li a {
+  color: #ddd !important;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: block;
+  transition: color 0.2s, transform 0.2s;
+}
+
+#sidebar.sidebar ul li a:hover {
+  color: #e30613 !important; /* Rojo Ironman */
+  transform: translateX(5px);
+}
+
+/* Botón cerrar */
+#sidebar .close-btn {
+  background: none;
+  border: none;
+  color: #fff !important;
+  font-size: 32px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+/* ------------------ OVERLAY ------------------ */
+#overlay.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1040;
+}
+#overlay.overlay.active {
+  display: block !important;
+}
+
+/* ------------------ HAMBURGER BUTTON ------------------ */
+.hamburger-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger-btn img {
+  height: 30px;
+}
+
+
+
+
+
+/* ------------------ NAVBAR ------------------ */
+.navbar {
+  background-color: #1a1a1a; /* fondo oscuro */
+  padding: 0.5rem 1rem;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+}
+
+/* Botón hamburguesa siempre visible */
+.navbar-toggler {
+  border: none;
+  margin-right: 10px;
+  display: block !important;
+}
+
+/* Forzar hamburguesa en blanco */
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Hover morado */
+.navbar-dark .navbar-toggler:hover .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(155,0,211,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Logo transparente y alineado */
+.navbar-brand img {
+  background: transparent !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.navbar-brand:hover {
+  color: #9d4edd;
+}
+
+/* Ajustar logo y botón hamburguesa */
+.navbar .container {
+  padding-left: 0 !important;  /* quita padding del contenedor */
+}
+
+.navbar-toggler {
+  margin-left: 0 !important;   /* botón pegado al borde */
+}
+
+.navbar-brand {
+  margin-left: 0 !important;   /* logo pegado al borde */
+}
+
+.navbar-brand img {
+  display: inline-block;
+  vertical-align: middle;
+  background: transparent !important;
+}

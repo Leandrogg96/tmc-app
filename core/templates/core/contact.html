@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center fw-bold mb-5">CONTACT INFO</h2>
+  <div class="row">
+    <!-- Left Column: Info -->
+    <div class="col-md-6">
+      <h4 class="fw-bold">Connect</h4>
+      <p>We are the premier endurance sports brand. Follow our socials to stay connected!</p>
+
+      <p class="fw-bold">Follow us</p>
+      <p class="fw-bold">Contact info</p>
+      <p>Email: <a href="mailto:your@email.com" class="text-danger fw-bold">your@email.com</a></p>
+    </div>
+
+    <!-- Right Column: Form -->
+    <div class="col-md-6">
+      <h5 class="fw-bold">Stay in touch</h5>
+      <p>Sign up for notifications and contact us directly.</p>
+
+      <!-- Message (success) -->
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="POST" class="mt-4">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="id_name" class="form-label">First Name*</label>
+          {{ form.name }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_email" class="form-label">Email*</label>
+          {{ form.email }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_message" class="form-label">Message</label>
+          {{ form.message }}
+        </div>
+
+        <button type="submit" class="btn btn-dark">Send</button>
+      </form>
+
+      <a href="{% url 'home' %}" class="btn btn-outline-secondary mt-3">
+        ← Back to Home
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

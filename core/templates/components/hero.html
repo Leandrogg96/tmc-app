@@ -1,0 +1,8 @@
+<section class="hero d-flex align-items-center text-white text-center" style="background-image: url('{{ event.featured_image.url }}'); background-size: cover; background-position: center; height: 90vh;">
+  <div class="overlay position-absolute w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
+  <div class="container position-relative z-1">
+    <h1 class="display-3 fw-bold">{{ event.name }}</h1>
+    <p class="lead">{{ event.date }} — {{ event.location }}</p>
+    <a href="#register" class="btn btn-primary btn-lg mt-3">Register</a>
+  </div>
+</section>

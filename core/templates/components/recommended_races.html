@@ -1,0 +1,18 @@
+<section class="container mt-5">
+  <h2 class="mb-4">Otras carreras recomendadas</h2>
+  <div class="row">
+    {% for race in recommended_races %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img src="{{ race.image.url }}" class="card-img-top" alt="{{ race.name }}">
+          <div class="card-body">
+            <small class="text-muted">{{ race.date }}</small>
+            <h5 class="card-title mt-2">{{ race.name }}</h5>
+            <p class="card-text text-muted">{{ race.location }}</p>
+            <a href="{{ race.link }}" class="btn btn-primary btn-sm">See race details</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
