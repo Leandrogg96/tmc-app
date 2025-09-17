@@ -250,3 +250,28 @@
   vertical-align: middle;
   background: transparent !important;
 }
+
+/* 🎵 Botón de música metálico */
+#music-toggle {
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 3.7px; /* cuadrado como otros botones */
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6pxpx 12px rgba(0,0,0,0.3);
+}
+
+/* Sonando (naranja metálico brillante) */
+#music-toggle.playing {
+  background: linear-gradient(135deg, #ff6f00, #ff9e00, #ff8500);
+}
+
+/* Muteado (naranja/bronce más apagado) */
+#music-toggle.muted {
+  background: linear-gradient(135deg, #b3541e, #e07b39, #a04f1c);
+  color: #f8f8f8;
+}
+

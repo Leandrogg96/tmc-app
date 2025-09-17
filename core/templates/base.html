@@ -61,6 +61,19 @@
 <!-- Overlay -->
 <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
+<!-- 🎵 Música de fondo -->
+<audio id="bg-music" autoplay loop muted>
+  <source src="/media/music/puente.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
+<!-- Botón de control -->
+<button id="music-toggle" onclick="toggleMusic()" class="btn btn-light position-fixed" 
+        style="bottom: 13px; right: 13px; z-index:2000;">
+  🔇 Sonido
+</button>
+
+
 <!-- ✅ PAGE CONTENT -->
 <main class="flex-grow-1">
   {% block content %}{% endblock %}
@@ -90,6 +103,29 @@ function toggleSidebar() {
     console.error("No se encontró el sidebar o el overlay");
   }
 }
+</script>
+
+<script>
+  const music = document.getElementById("bg-music");
+  const btn = document.getElementById("music-toggle");
+
+  // Estado inicial: muteado
+  btn.classList.add("muted");
+
+  function toggleMusic() {
+    if (music.muted) {
+      music.muted = false;
+      music.play();
+      btn.textContent = "🔊 Sonando";
+      btn.classList.remove("muted");
+      btn.classList.add("playing");
+    } else {
+      music.muted = true;
+      btn.textContent = "🔇 Música";
+      btn.classList.remove("playing");
+      btn.classList.add("muted");
+    }
+  }
 </script>
 
 </body>
